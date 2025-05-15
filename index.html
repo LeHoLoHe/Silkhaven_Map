@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <title>DnD World Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scripts/leaflet.css">
+    <script src="scripts/leaflet.js"></script>
+  </head>
+
+  <body style="height: 100%; margin: 0;">
+    <div id="map" style="width: 100%; height: 100%; background: #000000;"></div>
+    <script type="text/javascript">
+      // Define image dimensions in pixels
+      const imageWidth = 4054;   // Replace with your image width
+      const imageHeight = 4137;  // Replace with your image height
+
+      // Define map bounds based on image dimensions
+      const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+
+      // Create the map using simple CRS (coordinate system)
+      const map = L.map('map', {
+        crs: L.CRS.Simple,
+        minZoom: -5,
+        maxZoom: 2,
+        zoomSnap: 0.1,
+      });
+
+      // Add image overlay
+      const image = L.imageOverlay('map/silkhaven.png', imageBounds).addTo(map);
+
+      // Fit the map to the image bounds
+      map.fitBounds(imageBounds);
+
+      // Add a draggable marker
+      /*const marker = L.marker([imageHeight / 2, imageWidth / 2], {
+        draggable: true,
+      }).addTo(map);
+
+      marker.bindPopup('LatLng Marker').openPopup();
+
+      marker.on('dragend', function (e) {
+        marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
+      });
+      */
+      // Different Icons
+      var red_i = L.icon({
+        iconUrl:       'icons/red.png',
+        iconRetinaUrl: 'icons/red.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+	});
+      var green_i = L.icon({
+        iconUrl:       'icons/green.png',
+        iconRetinaUrl: 'icons/green.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+      });
+      var blue_i = L.icon({
+        iconUrl:       'icons/blue.png',
+        iconRetinaUrl: 'icons/blue.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+      });
+      var yellow_i = L.icon({
+        iconUrl:       'icons/yellow.png',
+        iconRetinaUrl: 'icons/yellow.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+      });
+      var pink_i = L.icon({
+        iconUrl:       'icons/pink.png',
+        iconRetinaUrl: 'icons/pink.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+      });
+      var orange_i = L.icon({
+        iconUrl:       'icons/orange.png',
+        iconRetinaUrl: 'icons/orange.png',
+        shadowUrl:     'icons/marker-shadow.png',
+        iconSize:    [25, 41],
+        iconAnchor:  [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowSize:  [41, 41]
+      });
+
+      // Markers
+      var es_sky = L.marker([3313.390364, 1731.709232], {icon:yellow_i}).bindPopup('<b>Palace of the Sky</b>');
+        var es_waves = L.marker([1987.178914, 2615.270453], {icon:yellow_i}).bindPopup('<b>House of Waves</b>');
+        var es_arimondo = L.marker([1903.740008, 564.572868], {icon:yellow_i}).bindPopup('<b>Arimondo Palace</b>');
+        var es_power = L.marker([2582.781029, 1637.113183], {icon:yellow_i}).bindPopup('<b>House of Power</b>');
+        var es_gold = L.marker([2503.963768, 1794.661478], {icon:yellow_i}).bindPopup('<b>House of Gold</b>');
+        var es_gaulo = L.marker([2536.104668, 431.262773], {icon:yellow_i}).bindPopup('<b>Villa Gaulo</b>');
+        var es_grimani = L.marker([1611.947288, 1499.066376], {icon:yellow_i}).bindPopup('<b>Grimani House</b>');
+        var es_marcello = L.marker([1988.620135, 546.394219], {icon:yellow_i}).bindPopup('<b>Round Palace</b>');
+        var es_sanudo = L.marker([2297.826315, 1988.567072], {icon:yellow_i}).bindPopup('<b>House of Salt</b>');
+        var es_steno = L.marker([2514.573784, 1036.912638], {icon:yellow_i}).bindPopup('<b>Temple of Knowledge</b>');
+        var es_valier = L.marker([2696.768619, 1893.054889], {icon:yellow_i}).bindPopup('<b>House of Plenty</b>');
+        var es_zeno = L.marker([2297.826315, 2624.819801], {icon:yellow_i}).bindPopup('<b>The Tower</b>');
+        var in_complications = L.marker([1179.426077, 1637.826141], {icon:blue_i}).bindPopup('<b>Complications</b>');
+        var in_flavor = L.marker([1221.295258, 1226.848839], {icon:blue_i}).bindPopup('<b>Fortune\'s Flavour</b>');
+        var in_bear = L.marker([1098.180817, 1728.880992], {icon:blue_i}).bindPopup('<b>Bear\'s Hide Inn</b>');
+        var in_rice = L.marker([2464.751116, 2329.350821], {icon:blue_i}).bindPopup('<b>Rice of Passage</b>');
+        var in_fry = L.marker([2430.279072, 2304.741402], {icon:blue_i}).bindPopup('<b>Fry me to the Moon</b>');
+        var in_waves = L.marker([2937.104665, 3336.167679], {icon:blue_i}).bindPopup('<b>The Wild Waves</b>');
+        var in_elephant = L.marker([1874.678531, 1163.769246], {icon:blue_i}).bindPopup('<b>The Elephant</b>');
+        var gl_wys = L.marker([2423.509455, 1022.867515], {icon:red_i}).bindPopup('<b>Safehouse</b>');
+        var gl_council = L.marker([2777.903196, 1681.694392], {icon:red_i}).bindPopup('<b>Council of Twelve</b>');
+        var gl_shack = L.marker([1851.935464, 2186.647432], {icon:red_i}).bindPopup('<b>Storage Shack of the Friends</b>');
+        var gl_vault = L.marker([2585.067779, 1787.237855], {icon:red_i}).bindPopup('<b>Vault of Gold</b>');
+        var gl_beyond = L.marker([3579.723365, 3561.538458], {icon:red_i}).bindPopup('<b>Wonders beyond the Veil</b>');
+        var gl_theatre = L.marker([1104.663259, 1592.403914], {icon:red_i}).bindPopup('<b>The Theatre</b>');
+        var gl_market = L.marker([1994.891885, 1667.090258], {icon:red_i}).bindPopup('<b>The Great Market</b>');
+        var te_gond = L.marker([1393.825112, 2371.730789], {icon:orange_i}).bindPopup('<b>Temple of Gond</b>');
+        var te_cemet = L.marker([1562.251668, 3775.914256], {icon:orange_i}).bindPopup('<b>Her Ladies\' Cemetery</b>');
+        var te_monst = L.marker([2274.734433, 295.499879], {icon:orange_i}).bindPopup('<b>Mountain Monestary</b>');
+        var st_cinder = L.marker([2704.013412, 2828.427125], {icon:green_i}).bindPopup('<b>Cinder\'s</b>');
+        var st_grapevine = L.marker([2614.358442, 2618.019121], {icon:green_i}).bindPopup('<b>The Grapevine</b>');
+        var st_octopus = L.marker([2394.024417, 2742.977151], {icon:green_i}).bindPopup('<b>The Octopus Balls</b>');
+        var st_news = L.marker([2366.171667, 2642.264709], {icon:green_i}).bindPopup('<b>New\'s Stand</b>');
+        var st_saltlake = L.marker([2134.779485, 1955.382981], {icon:green_i}).bindPopup('<b>Lady Saltlake\'s Trinkets and Treasures</b>');
+        var st_valentine = L.marker([2008.412485, 2016.929473], {icon:green_i}).bindPopup('<b>Lady Valentine\'s</b>');
+        var st_necromancer = L.marker([2004.862668, 1617.809796], {icon:green_i}).bindPopup('<b>The Necromancer\'s</b>');
+        var st_bread = L.marker([1252.130275, 1265.317269], {icon:green_i}).bindPopup('<b>Bread on it</b>');
+        var st_destiny = L.marker([1128.250643, 1170.199963], {icon:green_i}).bindPopup('<b>Destinies\' Draughts</b>');
+        var st_smithy = L.marker([1423.202942, 2095.458974], {icon:green_i}).bindPopup('<b>Smithy\'s Smithy</b>');
+        var st_sevyn = L.marker([1963.453217, 1739.037735], {icon:green_i}).bindPopup('<b>Sevyn\'s Stall</b>');
+
+        var g_estate = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno]);
+        var g_inn = L.layerGroup([in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant]);
+        var g_game = L.layerGroup([gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market]);
+        var g_shop = L.layerGroup([st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine, st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn]);
+        var g_temple = L.layerGroup([te_gond, te_cemet, te_monst]);
+        var g_all = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno,
+          in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant,
+          gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market,
+          st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine,
+          st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn,
+          te_gond, te_cemet, te_monst]);
+
+        // Marker Overlay
+        var overlays = {
+          "Estates": g_estate,
+          "Inns": g_inn,
+          "Shops": g_shop,
+          "Temples": g_temple,
+          "Game Locations": g_game,
+          "All Locations": g_all
+        };
+        // Default Display All Loations
+        g_all.addTo(map);
+        L.control.layers(null, overlays).addTo(map);
+    </script>
+  </body>
+</html>
