@@ -47,61 +47,61 @@
         iconUrl:       'icons/red.png',
         iconRetinaUrl: 'icons/red.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
 	});
       var green_i = L.icon({
         iconUrl:       'icons/green.png',
         iconRetinaUrl: 'icons/green.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
       });
       var blue_i = L.icon({
         iconUrl:       'icons/blue.png',
         iconRetinaUrl: 'icons/blue.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
       });
       var yellow_i = L.icon({
         iconUrl:       'icons/yellow.png',
         iconRetinaUrl: 'icons/yellow.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
       });
       var pink_i = L.icon({
         iconUrl:       'icons/pink.png',
         iconRetinaUrl: 'icons/pink.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
       });
       var orange_i = L.icon({
         iconUrl:       'icons/orange.png',
         iconRetinaUrl: 'icons/orange.png',
         shadowUrl:     'icons/marker-shadow.png',
-        iconSize:    [25, 41],
-        iconAnchor:  [12, 41],
+        iconSize:    [20, 30],
+        iconAnchor:  [10, 30],
         popupAnchor: [1, -34],
         tooltipAnchor: [16, -28],
-        shadowSize:  [41, 41]
+        shadowSize:  [30, 30]
       });
 
       // Markers
@@ -146,18 +146,18 @@
         var st_smithy = L.marker([1423.202942, 2095.458974], {icon:green_i}).bindPopup('<b>Smithy\'s Smithy</b>');
         var st_sevyn = L.marker([1963.453217, 1739.037735], {icon:green_i}).bindPopup('<b>Sevyn\'s Stall</b>');
 
-        var g_estate = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno]);
-        var g_inn = L.layerGroup([in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant]);
-        var g_game = L.layerGroup([gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market]);
-        var g_shop = L.layerGroup([st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine, st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn]);
-        var g_temple = L.layerGroup([te_gond, te_cemet, te_monst]);
+        // Marker Groups
         var g_all = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno,
           in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant,
           gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market,
           st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine,
           st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn,
           te_gond, te_cemet, te_monst]);
-
+        var g_estate = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno]);
+        var g_inn = L.layerGroup([in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant]);
+        var g_game = L.layerGroup([gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market]);
+        var g_shop = L.layerGroup([st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine, st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn]);
+        var g_temple = L.layerGroup([te_gond, te_cemet, te_monst]);
         // Marker Overlay
         var overlays = {
           "Estates": g_estate,
