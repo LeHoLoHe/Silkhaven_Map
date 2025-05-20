@@ -152,16 +152,17 @@
         var in_hamam = L.marker([1904.740013, 2880.524592], {icon:blue_i}).bindPopup('<b>Hanna\'s Hamam</b>');
         var st_stack = L.marker([1707.74619, 1929.205336], {icon:green_i}).bindPopup('<b>The Stack</b>');
         var gl_president = L.marker([2433.212153, 3773.185418], {icon:red_i}).bindPopup('<b>The President\'s</b>');
+        var gl_chirotto = L.marker([2342.03303, 2457.065781], {icon:red_i}).bindPopup('<b>Chirotto\'s</b>');
         // Marker Groups
         var g_all = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno,
           in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant,
           gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market,
           st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine,
           st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn,
-          te_gond, te_cemet, te_monst, st_fine, st_thread, st_strands, st_stack, in_hamam, gl_president]);
+          te_gond, te_cemet, te_monst, st_fine, st_thread, st_strands, st_stack, in_hamam, gl_president, gl_chirotto]);
         var g_estate = L.layerGroup([es_sky, es_waves, es_arimondo, es_power, es_gold, es_gaulo, es_grimani, es_marcello, es_sanudo, es_steno, es_valier, es_zeno]);
         var g_inn = L.layerGroup([in_complications, in_flavor, in_bear, in_rice, in_fry, in_waves, in_elephant, in_hamam]);
-        var g_game = L.layerGroup([gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market, gl_president]);
+        var g_game = L.layerGroup([gl_wys, gl_council, gl_shack, gl_vault, gl_beyond, gl_theatre, gl_market, gl_president, gl_chirotto]);
         var g_shop = L.layerGroup([st_cinder, st_grapevine, st_octopus, st_news, st_saltlake, st_valentine, st_necromancer, st_bread, st_destiny, st_smithy, st_sevyn, st_fine, st_thread, st_strands, st_stack]);
         var g_temple = L.layerGroup([te_gond, te_cemet, te_monst]);
         // Marker Overlay
